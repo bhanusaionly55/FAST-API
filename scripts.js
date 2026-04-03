@@ -16,7 +16,7 @@ function login() {
     let user = document.getElementById("username").value;
     let password = document.getElementById("password").value;
 
-    fetch("http://127.0.0.1:8000/login", {
+    fetch("https://fast-api-f2fx.onrender.com/login", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({ username: user, password: password })
@@ -37,7 +37,7 @@ function register() {
     let user = document.getElementById("username").value;
     let password = document.getElementById("password").value;
 
-    fetch("http://127.0.0.1:8000/register", {
+    fetch("https://fast-api-f2fx.onrender.com/register", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({ username: user, password: password })
@@ -66,7 +66,7 @@ window.onload = function () {
 
     if (!user_id) return;
 
-    fetch(`http://127.0.0.1:8000/journal/${user_id}`)
+    fetch(`https://fast-api-f2fx.onrender.com/journal/${user_id}`)
         .then(res => res.json())
         .then(data => {
             let area = document.getElementById("journal");
@@ -79,7 +79,7 @@ function saveJournal() {
     let user_id = localStorage.getItem("user_id");
     let content = document.getElementById("journal").value;
 
-    fetch(`http://127.0.0.1:8000/journal/${user_id}`, {
+    fetch(`https://fast-api-f2fx.onrender.com/journal/${user_id}`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({ content: content })
@@ -107,7 +107,7 @@ function deleteUser() {
 
     let user_id = localStorage.getItem("user_id");
 
-    fetch(`http://127.0.0.1:8000/user/${user_id}`, {
+    fetch(`https://fast-api-f2fx.onrender.com/user/${user_id}`, {
         method: "DELETE"
     })
     .then(res => {
